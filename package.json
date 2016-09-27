@@ -1,0 +1,57 @@
+{
+  "name": "Renew",
+  "private": true,
+  "version": "0.0.3",
+  "description": "Renew Studio Creative Website",
+  "keywords": [],
+  "dependencies": {
+    "bower": "^1.7.9",
+    "compression": "^1.6.0",
+    "connect-mongo": "^1.3.2",
+    "ejs": "~0.8.4",
+    "express": "^4.14.0",
+    "forever": "^0.15.2",
+    "grunt": "0.4.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-htmlmin": "^1.4.0",
+    "grunt-contrib-jst": "~0.6.0",
+    "grunt-contrib-less": "0.11.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-sails-linker": "~0.9.5",
+    "grunt-sync": "~0.0.4",
+    "include-all": "~0.1.3",
+    "jsonwebtoken": "^5.4.1",
+    "lusca": "^1.3.0",
+    "moment": "^2.10.6",
+    "paypal-ipn": "^3.0.0",
+    "rc": "~0.5.0",
+    "sails": "~0.11.2",
+    "sails-disk": "~0.10.0",
+    "sails-hook-autoreload": "^0.13.2",
+    "sails-mongo": "^0.12.0"
+  },
+  "scripts": {
+    "start": "./node_modules/forever/bin/forever -l ~/app-root/logs/forever.log --append --pidFile ~/app-root/logs/forever.pid start app.js --prod --no-grunt"
+  },
+  "main": "app.js",
+  "author": {
+    "name": "@Renew",
+    "email": "contact@renew.studio",
+    "url": "http://renew.studio/"
+  },
+  "homepage": "http://renew.studio/",
+  "repository": {
+    "type": "git",
+    "url": "git://gitlab.com/Renew/renew.studio.git"
+  },
+  "license": "",
+  "engines": {
+    "node": ">= 0.12.0"
+  }
+}

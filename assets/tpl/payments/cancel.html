@@ -1,0 +1,9 @@
+<div class="modal-over bg-dark dker">
+    <div class="modal-center animated fadeInUp text-center" style="width:300px;margin:-200px 0 0 -150px;">
+        <div class="thumb-lg">
+            <img ng-src="{{$root.user.info.picture}}" class="img-circle">
+        </div>
+        <p class="h2 m-t m-b">Sorry {{$root.user.info.firstName}}, something happens with your payment, try again.</p>
+        <button class="btn btn-danger btn-addon btn-lg" ui-sref="payments.checkout"><i class="fa fa-arrow-right pull-right"></i>Continue</button>
+    </div>
+</div>

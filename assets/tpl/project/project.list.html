@@ -1,0 +1,75 @@
+<div class="hbox hbox-auto-xs" ng-controller="ProjectListCtrl" ng-style="{'background-image': 'url(/img/bg/bg01.jpg)'}" ng-init="app.settings.showHeader = true">
+    <div class="padder-lg app-header-fixed-mtop">
+        <div class="row" style="height:100%;overflow-y: auto;">
+            <div class="col-md-4" ng-repeat="project in projects">
+                <div class="panel b-a">
+                    <div class="panel-heading no-border bg-black-opacity-60">
+                        {{project.title}}
+                    </div>
+                    <div class="item m-l-n-xxs m-r-n-xxs">
+                        <div ng-init="x = 3" class="top text-right padder m-t-xs w-full">
+                            <rating ng-model="x" max="5" state-on="'fa fa-star text-white'" state-off="'fa fa-star-o text-white'"></rating>
+                        </div>
+
+                        <div ng-if="project.total == 7" class="center text-center w-full" style="margin-top:-52px">
+                            <div class="inline">
+                                <i class="fa fa-check block m-b-xs fa-5x text-primary"></i>
+                            </div>
+                        </div>
+                        <div ng-if="project.total < 7" class="center text-center w-full" style="margin-top:-90px">
+                            <div ui-jq="easyPieChart" ui-refresh="x" ui-options="{
+                percent: {{project.total*15}},
+                lineWidth: 60,
+                trackColor: 'rgba(255,255,255,0)',
+                barColor: 'rgba(35,183,229,0.7)',
+                scaleColor: false,
+                size: 120,
+                lineCap: 'butt',
+                rotate: 0,
+                animate: 1000
+              }" class="inline">
+                            </div>
+                        </div>
+                        <div class="bottom bg-gd-dker">
+                            <!-- <div class="text-u-c h3 m-b-sm text-primary-lter">Coffee</div>
+                            <div>Restaurant</div>
+                            <div>9:00 am - 12:00 pm</div> -->
+                            <div class="hbox text-center b-light text-sm">
+                                <a ui-sref="project.preview({projectId:project.id})" class="col padder-v b-r b-light text-white">
+                                    <i class="fa fa-eye block m-b-xs fa-2x"></i>
+                                    <span>Preview</span>
+                                </a>
+                                <a href class="col padder-v b-r b-light text-white">
+                                    <i class="fa fa-comment-o block m-b-xs fa-2x"></i>
+                                    <span>Send message</span>
+                                </a>
+                                <a ui-sref="project.edit({projectId:project.id})" class="col padder-v text-white">
+                                    <i class="fa fa-pencil-square-o block m-b-xs fa-2x"></i>
+                                    <span>Edit</span>
+                                </a>
+                            </div>
+                        </div>
+                        <img ng-src="{{project.picture}}" height="217px" class="img-full">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel b-a">
+                    <a ng-click="loginModal()">
+                    <div class="panel-heading no-border text-white" style="background: rgba(125, 125, 125, 0.6);">
+                        Add new project
+                    </div>
+                    <div class="item m-l-n-xxs m-r-n-xxs">
+                        <div class="center text-center w-full" style="margin-top:-40px">
+                            <div class="inline">
+                                <i class="fa fa-plus block m-b-xs fa-5x" style="color: #8a8a8a;"></i>
+                            </div>
+                        </div>
+                        <img src="/img/previews/cDefault.jpg" height="217px" class="img-full">
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

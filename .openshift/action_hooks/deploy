@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# This deploy hook gets executed after dependencies are resolved and the
+# build hook has been run but before the application has been started back
+# up again.  This script gets executed directly, so it could be python, php,
+# ruby, etc.
+export HOME=$OPENSHIFT_REPO_DIR
+
+if [ -f "${OPENSHIFT_REPO_DIR}"/bower.json ]; then
+	if ! [ -d "${OPENSHIFT_DATA_DIR}bower" ]; then 
+	 	echo " *** Creating BOWER folder in the data *** "
+		mkdir ${OPENSHIFT_DATA_DIR}bower
+	fi
+
+	echo " *** Copying bower.json from the new deploy to the data *** "
+	cp "${OPENSHIFT_REPO_DIR}"/bower.json ${OPENSHIFT_DATA_DIR}bower
+
+	echo " *** Installing BOWER dependencies *** "
+   	(cd "${OPENSHIFT_DATA_DIR}bower"; bower install --silent)
+  	echo " *** BOWER dependencies installed *** "
+
+	echo " *** Linking BOWER dependencies to the deploy *** "
+	ln -s /var/lib/openshift/57e3c4ec89f5cf29da00000b/app-root/data/bower/assets/bower_components /var/lib/openshift/57e3c4ec89f5cf29da00000b/app-root/runtime/repo/assets
+fi
+
+# if [ ${NODE_ENV} == "production" ]; then
+if [ -f "${OPENSHIFT_REPO_DIR}"/Gruntfile.js ]; then
+  	echo " *** Running GRUNT prepare public folder *** "
+   	(cd "${OPENSHIFT_REPO_DIR}"; node_modules/grunt-cli/bin/grunt prod > /dev/null)
+  	echo " *** GRUNT tasks done ***"
+fi
+
+if [ -f "${OPENSHIFT_DATA_DIR}hot_deploy" ]; then
+		echo " *** Activating HOT_DEPLOY *** "
+		touch "${OPENSHIFT_REPO_DIR}.openshift/markers/hot_deploy"
+fi
+
+export HOME=$OLD_HOME

@@ -1,0 +1,20 @@
+<!-- list -->
+<ul class="nav">
+    <li class="padder m-t m-b-md text-muted text-xs">
+        <a ui-sref="home" class="navbar-brand text-lt no-border bg-n">
+            <img class="blink absolute inline" height="100%" style="margin-left: -4px;margin-top: 1px;" src="/img/renew-bulb.png">
+            <img height="100%" src="/img/renew-isotipo-animate.png" style="margin-top: 5px;">
+        </a>
+    </li>
+    <li ng-class="{active:$state.includes('app.form')}">
+        <a class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-edit"></i>
+            <span translate="aside.nav.components.form.FORM">Form</span>
+        </a>
+    </li>
+</ul>
+<!-- / list -->

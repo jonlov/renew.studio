@@ -1,0 +1,8 @@
+<ul class="nav navbar-nav">
+    <li>
+        <a ui-sref="payments.checkout">
+            <i class="fa fa-shopping-cart text-lg"></i>
+            <span class="badge badge-sm up bg-primary pull-right-xs" ng-show="ngCart.getTotalItems()">{{ ngCart.getTotalItems() }}</span> {{ ngCart.totalCost() | currency }}
+        </a>
+    </li>
+</ul>

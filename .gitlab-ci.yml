@@ -1,0 +1,111 @@
+image: ruby:2.1
+
+cache:
+  key: "$CI_BUILD_NAME"
+  untracked: true
+
+before_script:
+  - apt-get update -yq
+  - gem install dpl
+
+stages:
+  - deploy
+
+staging:
+  environment: staging
+  stage: deploy
+  script:
+    - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=staging --deployment_branch=master
+  only:
+    - staging
+
+production:
+  environment: production
+  stage: deploy
+  script:
+    - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=prod --deployment_branch=master
+  only:
+    - master
+
+###### NODE #####
+# image: node:latest
+
+# cache:
+#   key: "$CI_BUILD_NAME"
+#   paths:
+#     - node_modules/
+#     - bower_components/
+#   untracked: true
+
+# before_script:
+#   - apt-get update -yq
+#   - apt-get install -y ruby-dev rubygems
+#   - gem install dpl
+#   # - git update-index --chmod=+x .openshift/action_hooks/*
+
+# stages:
+#   - deploy
+
+# staging:
+#   environment: staging
+#   stage: deploy
+#   script:
+#     - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=staging --deployment_branch=master
+#   only:
+#     - staging
+
+# production:
+#   environment: production
+#   stage: deploy
+#   script:
+#     # - npm prune
+#     # - npm install --silent
+#     # - npm install bower --silent
+#     # - node_modules/bower/bin/bower prune --allow-root
+#     # - node_modules/bower/bin/bower install --allow-root
+#     # - node_modules/grunt-cli/bin/grunt prod
+#     - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=prod --deployment_branch=master
+#   # when: manual
+#   only:
+#     - master
+
+###### RUBY + NODE #####
+# image: ruby:2.1
+
+# cache:
+#   key: "$CI_BUILD_NAME"
+#   paths:
+#     - node_modules/
+#     - bower_components/
+#   untracked: true
+
+# before_script:
+#   - apt-get update -yq
+#   - apt-get install -y nodejs
+#   - apt-get install -y npm
+#   - ln -s /usr/bin/nodejs /usr/bin/node
+#   - npm prune
+#   - npm install --silent
+#   - node_modules/bower/bin/bower prune --allow-root
+#   - node_modules/bower/bin/bower install --allow-root --silent
+
+# stages:
+#   - deploy
+
+# staging:
+#   environment: staging
+#   stage: deploy
+#   script:
+#     - gem install dpl
+#     - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=staging --deployment_branch=master
+#   only:
+#     - staging
+
+# production:
+#   environment: production
+#   stage: deploy
+#   script:
+#     - gem install dpl
+#     - dpl --provider=openshift --user=$OPENSHIFT_USER --password=$OPENSHIFT_PASS --domain=renewcs --app=prod --deployment_branch=master
+#   only:
+#     - master

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#  We need to move the package.json file out of the way in pre_build, so
+#  that the OpenShift git post-receive hook doesn't try and use the old
+#  npm version to install the dependencies.
+
+# chmod -R o+rw $OPENSHIFT_REPO_DIR/avatar
+# chmod -R o+rw $OPENSHIFT_REPO_DIR/file
+
+# if [ -d "${OPENSHIFT_REPO_DIR}assets/bower_components" ]; then 
+# 	rm -f ${OPENSHIFT_REPO_DIR}assets/bower_components
+# 	rm -f ${OPENSHIFT_REPO_DIR}file
+# fi

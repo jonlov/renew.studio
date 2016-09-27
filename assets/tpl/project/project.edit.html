@@ -1,0 +1,40 @@
+<div class="hbox hbox-auto-xs" ng-init="app.settings.showHeader=false" ng-controller="ProjectPreviewCtrl">
+    <!-- column -->
+    <div class="col">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="vbox bg-black dker overflow-none">
+                            <!-- form -->
+                            <div class="row-row" ng-bind-html="sanitized">
+                            </div>
+                            <!-- <iframe ng-src="{{'/api/projects/'+project.id}}" class="no-border w-full h-full"></iframe> -->
+                            <div class="col">
+                                <div class="col-md-2 no-padder h-full overflow-auto">
+                                    <div class="b-a bg-black dk r r-2x">
+                                        <span ng-if="doing_async">Loading files...</span>
+                                        <abn-tree ng-if="isInit" tree-data="my_data" tree-control="my_tree" on-select="my_tree_handler(branch)" expand-level="2" initial-selection="web" icon-leaf="fa fa-file-o" icon-expand="fa fa-plus" icon-collapse="fa fa-minus">
+                                        </abn-tree>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 no-padder">
+                                    <style>
+                                    .ace_editor {
+                                        height: 300px;
+                                    }
+                                    </style>
+                                    <div>
+                                        <div ui-ace="aceOptions"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+</div>

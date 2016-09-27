@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="/favicon.ico?renewV4" />
+    
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>Unauthorized (401) | <%= companyName %></title>
+    <style>
+    body {
+        background: #000;
+        color: #696969;
+        text-align: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: auto;
+        font-size: 14px;
+    }
+    
+    a:link,
+    a:hover,
+    a:visited,
+    a:focus {
+        color: #868686;
+        text-decoration: initial;
+    }
+    
+    h1 {
+        font-size: 56px;
+        line-height: 100px;
+        font-weight: normal;
+        color: #f1f1f1;
+    }
+    
+    h2 {
+        font-size: 24px;
+        color: #696969;
+        line-height: 1.5em;
+    }
+    
+    h3 {
+        color: #f1f1f1;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 28px;
+    }
+    
+    hr {
+        max-width: 800px;
+        margin: 18px auto;
+        border: 0;
+        border-top: 1px solid #1d1d1d;
+        border-bottom: 1px solid #131212;
+    }
+    
+    img {
+        max-width: 40vw;
+    }
+    
+    .container {
+        margin: auto 20px;
+    }
+    
+    .section1-logo {
+        top: 100px;
+        left: 34px;
+        position: fixed;
+        width: 220px;
+        height: 100px;
+    }
+    
+    .blink {
+        animation: blink-animation 1s steps(5, start) infinite;
+        -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    }
+    
+    @keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+    
+    @-webkit-keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <h1>
+      <a href="/">
+          <img class="blink absolute inline" height="80px" style="margin-left: 26px;margin-top: 21px; position:absolute; display: inline;" src="/img/renew-bulb.png" />
+          <img height="110px" src="/img/renew-logo.png" />
+      </a>
+      <br />
+      Unauthorized
+    </h1>
+    <div class="container">
+        <h3>You don't have permission to see the page you're trying to reach.</h3>
+        <hr />
+        <p>Make sure you're logged in or the address is correct.</p>
+        <p>Please contact a <a href="mailto://contact@<%= urlWebSiteNoHttp %>">Renew administrator</a> if you think this is a mistake.</p>
+    </div>
+</body>
+
+</html>

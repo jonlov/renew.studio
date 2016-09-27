@@ -1,0 +1,26 @@
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs" ng-init="app.settings.showHeader=false" ng-controller="ProjectPreviewCtrl">
+    <!-- column -->
+    <div class="col">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="vbox bg-white-only overflow-none text-black">
+                            <div class="pos-fix bg-black-opacity-60 wrapper">
+                                <a ui-sref="home">
+                                    <i class="fa fa-arrow-left text-3x text-white"></i>
+                                </a>
+                            </div>
+                            <!-- form -->
+                            <iframe ng-src="{{project.url}}" class="no-border w-full h-full"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /column -->
+</div>
+<!-- /hbox layout -->

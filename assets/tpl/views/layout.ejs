@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+
+    <link rel="icon" href="/favicon.ico?renewV4" />
+    
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Google -->
+    <meta name="description" content="<%= description %>" />
+    <meta name="keywords" content="<%= keywords %>" />
+    
+    <!-- +Google -->
+    <link rel="author" href="<%= googleProfile %>">
+    <link rel="publisher" href="<%= googleProfile %>">
+    <meta itemprop="name" content="<%= title %>">
+    <meta itemprop="description" content="<%= description %>">
+    <meta itemprop="image" content="<%= urlWebSite %><%= image %>">
+
+    <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type": "Organization",
+      "url": "<%= urlWebSite %><%= route %>",
+      "name" : "<%= title %>",
+      "logo": "<%= urlWebSite %><%= logo %>",
+      "sameAs" : [
+        "<%= googleProfile %>",
+        "<%= facebookProfile %>",
+        "<%= twitterProfile %>"
+      ]
+    }
+    </script>
+
+    <!-- Facebook -->
+    <meta property="og:type" content="<%= og_type %>">
+    <meta property="og:url" content="<%= urlWebSite %><%= route %>" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:image" content="<%= urlWebSite %><%= image %>" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="<%= twitterCard %>" />
+    <meta name="twitter:site" content="<%= twitterAccount %>" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= description %>" />
+    <meta name="twitter:image" content="<%= urlWebSite %><%= image %>" />
+
+    <% if (status && status == 200) { %>
+        <!--STYLES-->
+        <!--STYLES END-->
+    <% } %>
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    
+    <!--STYLES END-->
+  </head>
+  <body ng-controller="AppCtrl">
+    <%- body %>
+
+    <% if (status && status == 200) { %>
+      <!--SCRIPTS-->
+      <!--SCRIPTS END-->
+    <%}%>
+  </body>
+</html>

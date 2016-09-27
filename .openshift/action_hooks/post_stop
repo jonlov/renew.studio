@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# if pgrep "[n]ode" > /dev/null
+# then
+# 	echo "exist"
+# else
+# 	echo "Starting maintenance web server."
+#     nohup node ${OPENSHIFT_REPO_DIR}/maintenance.js &
+# fi

@@ -1,0 +1,26 @@
+<div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}">
+  <!-- navbar -->
+  <div ng-include=" '/tpl/blocks/header.html' " class="app-header navbar padder-v padder-lg fade-in" ng-hide="!app.settings.showHeader">
+  </div>
+  <!-- / navbar -->
+  <!-- menu -->
+  <div ng-include=" '/tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}" ng-class="{'hide': !app.settings.showAside }">
+  </div>
+  <!-- / menu -->
+  <!-- content -->
+  <div class="app-content" ng-class="{'m-n': !app.settings.showAside, 'h-full': !app.settings.showFooter }">
+      <div class="app-content-body app-content-full fade-in smooth" ng-class="{'h-full': !app.settings.showFooter }" ui-view>
+      </div>
+      <!-- 'app-header-fixed-top': !app.settings.showHeader && !$root.$state.is('about'),  -->
+  </div>
+  <!-- / content -->
+  <!-- footer -->
+  <div class="app-footer navbar navbar-fixed-bottom bg-dark dk slide-in-up" ng-class="{'m-n': app.settings.showAside}" ng-show="app.settings.showFooter" ng-controller="MusicCtrl" ng-include="playerTemplate">
+  </div>
+  <!-- /footer -->
+  <!-- footer -->
+  <!-- <div class="app-footer wrapper b-t bg-light" ng-class="{'m-n': app.showAside}">
+      <span class="pull-right">{{app.version}} <a href ui-scroll-to="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span> &copy; 2015 Copyright.
+  </div> -->
+  <!-- / footer -->
+</div>

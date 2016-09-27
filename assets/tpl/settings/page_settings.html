@@ -1,0 +1,28 @@
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs hbox-auto-sm " ng-controller="SettingsCtrl">
+    <!-- column -->
+    <div class="col w-md b-r lter">
+        <div class="vbox">
+            <div class="wrapper-md text-center lter b-b h4 font-bold">
+              Account settings
+            </div>
+            <div class="row-row bg-light">
+                <div class="cell scrollable hover">
+                    <div class="cell-inner">
+                        <div class="list-group no-radius no-border no-bg m-b-none">
+                            <a ng-repeat="fold in folds" class="list-group-item hover-anchor b-a no-select" ui-sref-active="focus font-bold" ui-sref="settings.{{fold.filter}}">
+                              {{fold.name}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+    <!-- column -->
+    <div class="col" ui-view>
+    </div>
+    <!-- /column -->
+</div>
+<!-- /hbox layout -->

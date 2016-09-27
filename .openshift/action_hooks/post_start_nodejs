@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ${OPENSHIFT_APP_NAME} == "prod" ]; then
+	if ! [ -f "${OPENSHIFT_DATA_DIR}hot_deploy" ]; then
+		echo " *** Activating HOT_DEPLOY *** "
+		touch "${OPENSHIFT_DATA_DIR}hot_deploy"
+	fi
+fi

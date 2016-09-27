@@ -1,0 +1,20 @@
+<div class="modal-over bg-black-opacity" ng-controller="SigninFormController">
+    <div class="modal-center animated fadeInUp text-center" style="width:200px;margin:-100px 0 0 -100px;">
+        <div class="thumb-lg">
+            <img ng-src="{{$root.user.info.picture}}" class="img-circle">
+        </div>
+        <p class="h4 m-t m-b">{{username}}</p>
+        <form name="form" class="input-group w-full">
+            <div class="loader-container">
+                <input type="password" class="form-control text-sm r-3x-l no-border bg-light lt zoom-in" ng-hide="loading" ng-model="password" required placeholder="Enter pwd to continue" ng-invalid="authError" ui-focus="true">
+                <span class="input-group-btn">
+                <button class="btn btn-primary r-3x-r zoom-in" ng-hide="loading" ng-click="login()" ng-disabled='form.$invalid' style="
+    position: absolute; height: 34px; width: 36px; left: -36px;"><i class="fa fa-arrow-right"></i></button>
+            </span>
+                <div ng-include="'/tpl/blocks/loader.html'" ng-hide="!loading"></div>
+            </div>
+        </form>
+        <div class="text-danger wrapper text-center font-bold" ng-hide="!authError">
+            {{authError}}
+        </div>
+    </div>

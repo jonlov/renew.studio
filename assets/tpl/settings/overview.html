@@ -1,0 +1,80 @@
+<div class="vbox" ng-controller="SettingsOverviewCtrl">
+    <div class="wrapper-md b-b">
+        <div class="font-bold h4">
+            Overview
+        </div>
+    </div>
+    <div class="row-row bg-dark dker">
+        <div class="cell">
+            <div class="cell-inner">
+                <div class="wrapper-lg">
+                    <div class="hbox h-auto m-b-lg">
+                        <div class="col text-center w-sm">
+                            <div class="thumb-lg avatar inline">
+                                <img ng-src="{{user.info.picture}}" ng-show="user.info.picture">
+                            </div>
+                        </div>
+                        <div class="col v-middle h1 font-thin">
+                            <div ng-hide="item.editing" class="pull-left">
+                                <div class="pull-left">
+                                    {{user.info.firstName}} {{user.info.lastName}}
+                                </div>
+                            </div>
+                            <div ng-show="item.editing">
+                                <input type="text" placeholder="First" class="form-control w-auto input-lg m-b-n-xxs font-bold" ng-model="user.info.firstName">
+                                <input type="text" placeholder="Last" class="form-control w-auto input-lg font-bold" ng-model="user.info.lastName">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fields -->
+                    <div class="form-horizontal">
+                        <div class="form-group m-b-sm" ng-hide="!user.info.email && !item.editing">
+                            <label class="col-sm-3 control-label pull-left">Email</label>
+                            <div class="col-sm-9">
+                                <div class="form-control-static">
+                                    <a>
+                                        {{user.info.email}}
+                                        <i class="fa fa-pencil m-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-sm" ng-hide="!user.info">
+                            <label class="col-sm-3 control-label pull-left">Password</label>
+                            <div class="col-sm-9">
+                                <div class="form-control-static">
+                                    <a>
+                                        **********
+                                        <i class="fa fa-pencil m-l"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-sm" ng-hide="!user.info.work && !item.editing">
+                            <label class="col-sm-3 control-label">Work</label>
+                            <div class="col-sm-9 form-control-static">
+                                <a ng-hide="item.editing">{{user.info.work}}</a>
+                                <input type="text" class="form-control" ng-show="item.editing" ng-model="user.info.work">
+                            </div>
+                        </div>
+                        <div class="form-group m-b-sm" ng-hide="!user.info.company && !item.editing">
+                            <label class="col-sm-3 control-label">Company</label>
+                            <div class="col-sm-9 form-control-static">
+                                <a ng-hide="item.editing">{{user.info.company}}</a>
+                                <input type="text" class="form-control" ng-show="item.editing" ng-model="user.info.company">
+                            </div>
+                        </div>
+                        <div class="form-group m-b-sm" ng-hide="!user.info.note && !item.editing">
+                            <label class="col-sm-3 control-label">Note</label>
+                            <div class="col-sm-9 form-control-static">
+                                <a ng-hide="item.editing">{{user.info.note}}</a>
+                                <textarea class="form-control" ng-show="item.editing" ng-model="user.info.note" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / fields -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="animated font-bold">
+    <ngcart-cart template-url="/tpl/payments/cart.html"></ngcart-cart>
+    <div class="wrapper-md b-b h4 font-bold" ng-show="ngCart.getTotalItems()">
+        Proceed checkout
+    </div>
+    <div class="wrapper-md" ng-show="ngCart.getTotalItems()">
+        <ngcart-checkout service="paypal" settings="app" template-url="/tpl/payments/checkout-options.html"></ngcart-checkout>
+    </div>
+</div>

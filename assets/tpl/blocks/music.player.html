@@ -1,0 +1,36 @@
+<div class="videogular-container">
+    <videogular vg-player-ready="onPlayerReady($API)" vg-complete="onComplete()" vg-theme="config.theme.url" class="videogular-container audio" vg-auto-play="config.autoPlay">
+        <vg-media vg-type="audio" vg-src="player.list[active].sources"></vg-media>
+        <vg-controls>
+            <!-- brand -->
+            <!-- <vg-button ng-hide="$root.$state.current.name != 'profile' || user.isAuthenticated()" class="navbar-brand text-lt" style="display: table-cell;" ui-sref="home">
+                <img src="/img/logo.png" height="54px" class="m-l-md" style="margin-top: -16px;">
+            </vg-button> -->
+            <!-- / brand -->
+            <vg-time-display class="hidden-xs" style="width: 50px;">
+                <a href="/{{player.list[active].artist+'/song/'+player.list[active].title}}}">
+                    <img ng-src="{{ player.list[active].poster }}" width="50px" />
+                </a>
+            </vg-time-display>
+                <vg-title class="hidden-xs">
+                    {{player.list[active].title}}
+                </vg-title>
+            <vg-button ng-show="player.list.length > 1" ng-click="play('prev')"><i class="fa fa-backward"></i></vg-button>
+            <vg-play-pause-button></vg-play-pause-button>
+            <vg-button ng-show="player.list.length > 1" ng-click="play('next')"><i class="fa fa-forward"></i></vg-button>
+            <!-- <vg-time-display class="hidden-xs pull-right">{{ currentTime | date:'mm:ss' }}</vg-time-display>
+            <vg-time-display class="pull-right">{{ timeLeft | date:'mm:ss' }}</vg-time-display> -->
+            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time class="bg-primary" style="height: 4px; margin-top: 24px;"></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+            <vg-time-display>{{ totalTime | date:'mm:ss' }}</vg-time-display>
+            <vg-button ng-click="toggleShuffle()" title="Shuffle"><i class="fa fa-random" ng-class="{'text-primary':config.shuffle}"></i></vg-button>
+            <vg-button ng-click="toggleRepeat()" title="Repeat"><i class="fa fa-retweet" ng-class="{'text-primary':config.repeat}"></i></vg-button>
+            <vg-volume>
+                <vg-mute-button></vg-mute-button>
+                <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+        </vg-controls>
+    </videogular>
+</div>

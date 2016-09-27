@@ -1,0 +1,23 @@
+<!-- navbar -->
+<div ng-include="'/tpl/blocks/header.html'" ng-show="user.isAuthenticated()" class="app-header navbar">
+</div>
+<!-- / navbar -->
+<!-- menu -->
+<div ng-include=" '/tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}" ng-class="{'hide': app.hideAside }">
+</div>
+<!-- / menu -->
+<!-- content -->
+<div class="app-content" ng-class="{'m-n': app.hideAside, 'h-full': app.hideFooter }" ng-init="app.settings.container = true;">
+    <div class="app-content-body app-content-full fade-in-up" ng-class="{'app-header-fixed-top':user.isAuthenticated(),'h-full': app.hideFooter }" ui-view>
+    </div>
+</div>
+<!-- / content -->
+<!-- footer -->
+<div class="app-footer navbar navbar-fixed-bottom bg-light lt b-t" ng-class="{'m-n': app.hideAside, 'hide': app.hideFooter}" ng-include="'/tpl/blocks/music.player.html'">
+</div>
+<!-- /footer -->
+<!-- footer -->
+<!-- <div class="app-footer wrapper b-t bg-light" ng-class="{'m-n': app.hideAside}">
+    <span class="pull-right">{{app.version}} <a href ui-scroll-to="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span> &copy; 2015 Copyright.
+</div> -->
+<!-- / footer -->

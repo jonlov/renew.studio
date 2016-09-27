@@ -1,0 +1,196 @@
+{
+  "data": {
+    "notification": [],
+    "payments": [],
+    "project": [],
+    "user": [
+      {
+        "createdAt": "2015-09-25T12:55:17.334Z",
+        "email": "RaulPratt@gmail.com",
+        "firstName": "Raul",
+        "lastName": "Pratt",
+        "picture": "/img/b7.jpg",
+        "updatedAt": "2015-09-26T09:10:06.625Z",
+        "username": "Test",
+        "password": " ",
+        "id": 1,
+        "background": "http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg"
+      },
+      {
+        "createdAt": "2015-09-25T12:55:17.334Z",
+        "email": "rockjonathan18@gmail.com",
+        "firstName": "Jonathan",
+        "lastName": "Lovera",
+        "picture": "/img/b7.jpg",
+        "updatedAt": "2015-09-26T09:10:06.625Z",
+        "username": "Jonlov",
+        "password": "123456",
+        "id": 2,
+        "background": "http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg"
+      },
+      {
+        "createdAt": "2015-09-25T12:55:17.334Z",
+        "email": "gustavochouriodesign@gmail.com",
+        "firstName": "Gustavo",
+        "lastName": "Chourio",
+        "picture": "https://scontent-syd1-1.xx.fbcdn.net/v/t1.0-9/14355745_10209157710634350_5059433826235159146_n.jpg?oh=edffb6e8a87ced57fb5957e1cc9e9cb3&oe=58627E4F",
+        "updatedAt": "2015-09-26T09:10:06.625Z",
+        "username": "Gustavo",
+        "password": "123456",
+        "id": 3,
+        "background": "http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg"
+      },
+      {
+        "createdAt": "2015-09-25T12:55:17.334Z",
+        "email": "robert151196@gmail.com",
+        "firstName": "Robert",
+        "lastName": "Williams",
+        "picture": "https://scontent-syd1-1.xx.fbcdn.net/v/t1.0-9/1497044_10207764161758756_3383304842032454805_n.jpg?oh=a3c8bf5d59bf5588aeb66f2af72e6a88&oe=5882BAFC",
+        "updatedAt": "2015-09-26T09:10:06.625Z",
+        "username": "Robert",
+        "password": "123456",
+        "id": 4,
+        "background": "http://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg"
+      }
+    ]
+  },
+  "schema": {
+    "notification": {
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string",
+        "unique": true
+      },
+      "new": {
+        "type": "boolean",
+        "defaultsTo": false
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "payments": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "project": {
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "picture": {
+        "type": "string",
+        "defaultsTo": "/img/b7.jpg"
+      },
+      "password": {
+        "type": "string"
+      },
+      "user": {
+        "type": "string",
+        "unique": true
+      },
+      "background": {
+        "type": "string"
+      },
+      "map": {
+        "type": "json"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "emailVerified": {
+        "type": "boolean",
+        "defaultsTo": 0
+      },
+      "sessionToken": {
+        "type": "string",
+        "defaultsTo": "ASlj34F0-a4df"
+      },
+      "picture": {
+        "type": "string",
+        "defaultsTo": "/img/b7.jpg"
+      },
+      "username": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "agree": {
+        "type": "boolean",
+        "defaultsTo": true
+      },
+      "background": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "notification": {},
+    "payments": {},
+    "project": {},
+    "user": {
+      "id": 4
+    }
+  }
+}

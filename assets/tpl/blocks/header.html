@@ -1,0 +1,22 @@
+<div class="navbar-header {{app.settings.navbarHeaderColor}}">
+    <!-- brand -->
+    <div id="partners">
+        <div class="partners-wrap bg-gd-dk-inverse bg-black-opacity text-center padder-lg wrapper-sm">
+            <div class="text-center">
+                <a ui-sref="home">
+                    <img class="blink absolute inline" height="80px" style="margin-left: 26px;margin-top: 21px;" ng-src="{{img}}" ng-show="img" />
+                    <img height="110px" src="/img/renew-logo.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- / brand -->
+</div>
+<!-- / navbar header -->
+<!-- navbar collapse -->
+<div class="pos-rlt {{app.settings.navbarCollapseColor}}">
+    <!-- nabar right -->
+    <ul class="nav navbar-nav m-r-xs pull-right" ng-include="headUrl()">
+    </ul>
+    <!-- / navbar right -->
+</div>
