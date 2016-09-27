@@ -22,5 +22,7 @@ module.exports = {
 
     origin: 'https://renew.studio, https://api.sandbox.paypal.com, https://api-3t.sandbox.paypal.com, https://api-aa.sandbox.paypal.com, https://api-aa-3t.sandbox.paypal.com, https://svcs.sandbox.paypal.com, https://pointofsale.sandbox.paypal.com, https://ipnpb.sandbox.paypal.com, https://www.sandbox.paypal.com',
 
-    sessionSecret: 'tokenhersare-2828dfgkjngrrgk384vydfgsuseguperseguroAmod4h6d3heotosIdfuckoffkjngrrgk9258nanyob-4925865h5wh',
+    TOKEN_SECRET: function (){
+        return process.env.TOKEN_SECRET || 'localTestingToken-124321125';
+    }
 }
